@@ -1,0 +1,9 @@
+{
+  "name": "nodejs-oop-design-patterns",
+  "version": "1.0.0",
+  "description": "Apply OOP design patterns to Node.js",
+  "main": "index.js",
+  "author": "ponzmild",
+  "license": "MIT",
+  "private": true
+}
