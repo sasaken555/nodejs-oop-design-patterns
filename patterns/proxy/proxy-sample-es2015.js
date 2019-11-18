@@ -1,10 +1,12 @@
 "use strict";
 
-const greeter = {
-  hello: name => console.log(`Hello, ${name}`),
-  goodbye: () => console.log("Goodbye...see you again!"),
-  lang: "en"
-};
+const greeter = () => {
+  return {
+    hello: name => console.log(`Hello, ${name}`),
+    goodbye: () => console.log("Goodbye...see you again!"),
+    lang: "en"
+  };
+}
 
 /**
  * 全ての関数でログ出力するGreeterを生成するファクトリ関数。
@@ -13,20 +15,20 @@ const greeter = {
  * @return {*}
  */
 const createGreeter = greeter => {
-  Object.keys(greeter).forEach(funcKey => {
-    console.log(`Create proxy for ${funcKey}`);
-    const funcOrigin = greeter[funcKey];
+  Object.keys(greeter).forEach(funcName => {
+    console.log(`>> Create proxy for ${funcName}`);
+    const funcOrigin = greeter[funcName];
 
     // 関数以外の型のプロパティはプロキシしない!!
     if (typeof funcOrigin !== "function") {
-      console.log("Skip to apply proxy");
+      console.log(">> Skip to apply proxy for " + funcName);
       return;
     }
 
-    greeter[funcKey] = new Proxy(funcOrigin, {
+    greeter[funcName] = new Proxy(funcOrigin, {
       apply(target, thisArg, argArray) {
         console.log(
-          `Called ${funcKey} w/ ${argArray.length === 0 ? "Nothing" : argArray}`
+          `[Logging] Called ${funcName} w/ ${argArray.length === 0 ? "Nothing" : argArray}`
         );
         funcOrigin.apply(thisArg, argArray);
       }
@@ -38,7 +40,7 @@ const createGreeter = greeter => {
 module.exports.createGreeter = createGreeter;
 
 if (require.main === module) {
-  const patchedGreeter = createGreeter(greeter);
+  const patchedGreeter = createGreeter(greeter());
   console.log("---------------------------------");
   patchedGreeter.hello("Ponz-san");
   patchedGreeter.goodbye();
