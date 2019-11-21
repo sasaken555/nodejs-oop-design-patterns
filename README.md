@@ -14,7 +14,7 @@ For more information, check the link below.
 Patterns are listed below.
 
 * Factory
-* Revealing contructor
+* Revealing constructor
 * Proxy
 * Decorator
 * Adapter
@@ -28,4 +28,24 @@ Patterns are listed below.
 
 ```bash
 $ yarn install
+$ node patterns/{design-pattern}/{file-name}
 ```
+
+## Detail
+
+### Proxy
+
+既存のオブジェクトと全く同じインターフェイスを持ちながら、機能を拡張させる。
+
+全く同じインターフェイスを持つため、Proxyを通したオブジェクトと既存のオブジェクトは入れ替え可能(=透過的)。
+
+### Decorator
+
+既存のオブジェクトの振る舞いを動的に拡張する。
+
+既存のオブジェクトに新しい機能を与えるが、
+既存のインターフェイス自体の振る舞いは変更せずに処理を委譲するケースが多い。
+必要に応じて、Proxyパターンと同時に使って既存のインターフェイスをそのままに処理を変更可能。
+
+### Adaptor
+
