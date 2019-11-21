@@ -16,6 +16,7 @@
     "prettier": "^1.19.1"
   },
   "dependencies": {
+    "level": "^6.0.0",
     "stampit": "^4.3.0"
   }
 }
