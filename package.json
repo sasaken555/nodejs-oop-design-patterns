@@ -16,7 +16,9 @@
     "prettier": "^1.19.1"
   },
   "dependencies": {
+    "js-yaml": "^3.13.1",
     "level": "^6.0.0",
+    "object-path": "^0.11.4",
     "stampit": "^4.3.0"
   }
 }
