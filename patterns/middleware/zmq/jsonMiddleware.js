@@ -1,4 +1,4 @@
-const logger = require("../../utils/log-util").createLogger("jsonMiddleware");
+const logger = require("../../../utils/log-util").createLogger("jsonMiddleware");
 module.exports.json = () => {
   return {
     inbound: (message, next) => {

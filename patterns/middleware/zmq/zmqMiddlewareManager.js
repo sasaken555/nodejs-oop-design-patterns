@@ -1,5 +1,5 @@
 "use strict";
-const logger = require("../../utils/log-util").createLogger(
+const logger = require("../../../utils/log-util").createLogger(
   "zmqMiddlewareManager"
 );
 

@@ -1,4 +1,4 @@
-const logger = require("../../utils/log-util").createLogger("client");
+const logger = require("../../../utils/log-util").createLogger("client");
 const zmq = require("zeromq/v5-compat");
 const socket = zmq.socket("push");
 const ZmqMiddlewareManager = require("./zmqMiddlewareManager");
